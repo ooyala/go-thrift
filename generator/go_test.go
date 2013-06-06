@@ -6,7 +6,7 @@ package main
 
 import (
 	"bytes"
-	"github.com/samuel/go-thrift/parser"
+	"github.com/ooyala/go-thrift/parser"
 	"io"
 	"regexp"
 	"testing"

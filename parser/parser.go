@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/samuel/go-parser"
+	"github.com/ooyala/go-parser"
 )
 
 type Filesystem interface {
