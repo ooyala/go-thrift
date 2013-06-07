@@ -474,14 +474,14 @@ func (p *Parser) outputToThrift(obj parser.Output, includename string) (*Thrift,
 	return thrift, nil
 }
 
-func (p *Parser) Parse(r io.Reader, includename string) (*Thrift, error) {
+func (p *Parser) Parse(r io.Reader, filename, includename string) (*Thrift, error) {
 	b, err := ioutil.ReadAll(r)
 	if err != nil {
 		panic(err)
 	}
 
 	str := string(b)
-	in := parser.NewStringInput(str)
+	in := parser.NewStringInput(str, filename)
 	st := &parser.State{
 		Input: in,
 		Spec:  spec,
@@ -530,5 +530,5 @@ func (p *Parser) ParseFile(filename, includename string) (*Thrift, error) {
 	}
 	defer r.Close()
 
-	return p.Parse(r, includename)
+	return p.Parse(r, filename, includename)
 }

@@ -34,7 +34,7 @@ func GenerateThrift(name string, in io.Reader) (out string, err error) {
 		g  *GoGenerator
 		b  *bytes.Buffer
 	)
-	if th, err = p.Parse(in); err != nil {
+	if th, err = p.Parse(in, "test"); err != nil {
 		return
 	}
 	g = &GoGenerator{th.MergeIncludes()}
