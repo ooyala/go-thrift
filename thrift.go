@@ -120,12 +120,7 @@ func fieldType(t reflect.Type) byte {
 		}
 		return TypeMap
 	case reflect.Slice:
-		elemType := t.Elem()
-		if elemType.Kind() == reflect.Uint8 {
-			return TypeString
-		} else {
-			return TypeList
-		}
+		return TypeList
 	case reflect.Struct:
 		return TypeStruct
 	case reflect.String:
